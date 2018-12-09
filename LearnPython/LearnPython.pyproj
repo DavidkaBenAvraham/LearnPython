@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>c84bd9b5-d99d-431b-8d8f-a9cad91b34fa</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>LearnPython.py</StartupFile>
+    <StartupFile>Elevator\logic.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>LearnPython</Name>
     <RootNamespace>LearnPython</RootNamespace>
+    <InterpreterId>Global|ContinuumAnalytics|Anaconda37-64</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,7 +22,36 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Elevator\building.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elevator\db_elevator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elevator\elevator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elevator\logic.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elevator\people.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="LearnPython.py" />
+    <Compile Include="multithreaded programming\module1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="multithreaded programming\module2.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda37-64" />
+    <InterpreterReference Include="Global|PythonCore|3.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Elevator\" />
+    <Folder Include="multithreaded programming\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
