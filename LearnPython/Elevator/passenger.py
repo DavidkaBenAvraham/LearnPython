@@ -1,5 +1,6 @@
 import random
 from elevator import *
+import logic
 import datetime
 import time
 import threading
@@ -45,15 +46,23 @@ class PassThread(threading.Thread):
         self.passenger = passenger
         self.setName(Passenger.pass_num - 1)
     def run(self):
-        while True:
-            # люди заходят не всегда, а с некоторым интервалом
-            time.sleep(random.randint(1, 5)) # от одной до пяти секунд
-            start_passengers(passenger)
+        #while true:
+        
+        ###########################  тут про лифты ############################################
+
+        #############################################################################################################################
+        #                                                   код для нескольких лифтов
+        #
+        #nearest_elevator = get_nearest_elevator(passenger[Passenger.pass_num - 1] , elevator)
+        #print("ближайший лифт ", nearest_elevator.elevator_number)
+        #lift(passenger[Passenger.pass_num - 1] , nearest_elevator)
+
+        lift(passenger[Passenger.pass_num - 1] , elevator[0])
+        pass
 
 #Здесь создаем входящих в здание пассажиров
 
 def start_passengers(passenger):
-    print("Start  pass = " )
     # одновременно могут зайти несколько человек
     random_num_of_pass = random.randint(1, 3)
     print("Start random_num_of_pass = " , random_num_of_pass)
@@ -62,18 +71,16 @@ def start_passengers(passenger):
         current_floor = random.randint(1, 99)
         while current_floor == required_floor: current_floor = random.randint(1, 99) # вызываемый этаж отличается от текущего       
         passenger.append(Passenger(current_floor , required_floor))
+
+        # каждый пассажир имеет одельный поток
+        p = PassThread(passenger)
+        p.setName(Passenger.pass_num)
+        p.start()
+        print("PassThread name =" , p.getName())
+        log.write("PassThread name =" , p.getName())
+
         print(passenger[Passenger.pass_num - 1].info())
 
-        ###########################  тут про лифты ############################################
-        nearest_elevator = get_nearest_elevator(passenger[Passenger.pass_num - 1] , elevator)
-        print("ближайший лифт ", nearest_elevator.elevator_number)
-        lift(passenger[Passenger.pass_num - 1] , nearest_elevator)
 
 
-# какая то ненужная хуйня
-def get_passengers_by_group_elevators(group , passenger):
-    p_out = []
-    for p in passenger:
-        if(p.floor_group == group):
-            p_out.append(p)
-    return p_out
+
