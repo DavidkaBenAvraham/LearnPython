@@ -34,7 +34,7 @@
     <Compile Include="Elevator\logic.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Elevator\people.py">
+    <Compile Include="Elevator\passenger.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="LearnPython.py" />

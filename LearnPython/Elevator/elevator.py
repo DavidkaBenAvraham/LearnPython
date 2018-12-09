@@ -1,5 +1,12 @@
 import random
 import time
+import threading
+
+from passenger import *
+
+
+elevator = [] # list of elevators '''
+
 class Elevator:
     """
     """
@@ -35,6 +42,17 @@ class Elevator:
     def info(self):
         return [self]
         pass
+
+class ElevatorThread(threading.Thread):
+    def __init__(self,elevator):
+        threading.Thread.__init__(self)
+        self.daemon = True
+        self.passenger = passenger
+    def run(self):
+        while True:
+            # люди заходят не всегда, а с некоторым интервалом
+            time.sleep(random.randint(1, 5)) # от одной до пяти секунд
+            start_passengers(passenger)
 
 def create_elevators(elevator , num_of_elevators):
     for i in range(num_of_elevators):
