@@ -1,13 +1,10 @@
-from passenger import *
-from elevator import *
+
+#from elevators import *
+#from passengers import *
+import elevators, passengers, log
 import db_elevator
 import threading
 
-
-
-# ####################################
-#         ЛОГ
-log = open('text.txt', 'w')
 
 
 ###############################################################################################################
@@ -18,15 +15,15 @@ log = open('text.txt', 'w')
 
 
 
+el = create_elevator()
 
-
-# https://www.ibm.com/developerworks/ru/library/l-python_part_9/index.html
-###############################################################################################################
 # пассажир
+# list of passengers '''
+passenger = []
 while True:
     # люди заходят не всегда, а с некоторым интервалом
     time.sleep(random.randint(1, 5)) # от одной до пяти секунд
-    start_passengers(passenger)
+    create_passenger(passenger , el)
 
 
 

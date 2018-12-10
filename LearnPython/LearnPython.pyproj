@@ -28,13 +28,16 @@
     <Compile Include="Elevator\db_elevator.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Elevator\elevator.py">
+    <Compile Include="Elevator\elevators.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Elevator\log.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Elevator\logic.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Elevator\passenger.py">
+    <Compile Include="Elevator\passengers.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="LearnPython.py" />
